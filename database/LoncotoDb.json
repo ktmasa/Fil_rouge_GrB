@@ -1,0 +1,39 @@
+{
+	"famille": [
+		{"id": 1,"nom": "Imprimante"},
+	],
+	"sous-famille": [
+		{"id": 1,"nom": "Imprimante Canon" "familleId" :1},
+	],
+	"article": [
+		{"id": 1,"nom": "Imprimante Canon PIXMA TS6150","sousFamilleId": 1,"description": "Imprimante multifonction à 6 encres séparées intelligente, compacte et connectée, idéale pour imprimer à domicile de superbes photos sans bordure.","ficheTechnique":"/PIXMATS6150.pdf"},
+		
+	],
+	"materiel": [
+		{"id": 1,"serialNumber": "ABC973133717186","corps": "Tu n'as pas fait ton travail","salleId": 1,"clientId": 1},
+	],
+	"salle": [
+		{"id": 1,"nom": "Salle de reunion 109","corps": "etageId","auteur": 1},
+	],
+	"etage": [
+		{"id": 1,"numeroEtage":1,"batimentId":1},
+	],
+	"batiment": [
+		{"id": 1,"titre": "","corps": "","auteur": 1},
+	],
+	"site": [
+		{"id": 1,"titre": "","corps": "","auteur": 1},
+	],
+	"intervention": [
+		{"id": 1,"titre": "","corps": "","auteur": 1},
+	],
+	"intervenant": [
+		{"id": 1,"titre": "","corps": "","auteur": 1},
+	],
+	"client": [
+		{"id": 1,"titre": "","corps": "","auteur": 1},
+	],
+	"image": [
+		{"id": 1,"titre": "","corps": "","auteur": 1},
+	],
+}
