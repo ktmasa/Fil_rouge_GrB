@@ -6949,7 +6949,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasD6nOaK/lM="
 									},
-									"name": "dateEffectue",
+									"name": "dateRealisation",
 									"type": "Date",
 									"length": 0
 								},
@@ -6979,7 +6979,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasD6nOaK/lM="
 									},
-									"name": "MatId",
+									"name": "materielId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true,
@@ -6993,7 +6993,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasD6nOaK/lM="
 									},
-									"name": "IntervenantId",
+									"name": "intervenantId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true,
@@ -7017,7 +7017,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasD6nOaK/lM="
 									},
-									"name": "ImageId",
+									"name": "imageId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true
@@ -7120,7 +7120,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasSfyubFmUc="
 									},
-									"name": "SalleId",
+									"name": "salleId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true,
@@ -7134,7 +7134,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasSfyubFmUc="
 									},
-									"name": "clientID",
+									"name": "clientId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true,
@@ -7333,7 +7333,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkasqbVOdMdDY="
 									},
-									"name": "EtageId",
+									"name": "etageId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true,
@@ -7690,7 +7690,7 @@
 										"$ref": "AAAAAAFkatAW1OhLxPE="
 									},
 									"name": "telephone",
-									"type": "number",
+									"type": "int",
 									"length": 0
 								},
 								{
@@ -7770,7 +7770,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFk+Yqxiou7rLM="
 									},
-									"name": "SousFamilleId",
+									"name": "sousFamilleId",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true
@@ -7862,7 +7862,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFk+Yr+r4vIR4M="
 									},
-									"name": "FamilleID",
+									"name": "familleID",
 									"type": "int",
 									"length": 0,
 									"foreignKey": true
