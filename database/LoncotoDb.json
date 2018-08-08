@@ -2,24 +2,28 @@
 	"famille": [
 		{"id": 1,"nom": "Imprimante"},
 		{"id": 2,"nom": "Televiseur"},
-		{"id": 3,"nom": "Retroprojecteur"},
-		{"id": 4,"nom": "Serveur"}
+		{"id": 3,"nom": "Projecteur"}
 	],
 	"sous-famille": [
-		{"id": 1,"nom": "Imprimante Canon" "familleId" :1},
-		{"id": 2,"nom": "Imprimante Epson" "familleId" :1},
-		{"id": 3,"nom": "PC Dell" "familleId" :2},
-		{"id": 4,"nom": "Ecran HP" "familleId" :3},
-		{"id": 5,"nom": "Ecran Apple" "familleId" :3},
-		{"id": 6,"nom": "Televiseur Sharp" "familleId" :4},,
-		{"id": 7,"nom": "Retroprojecteur Leica" "familleId" :5},
-		{"id": 8,"nom": "Retroprojecteur Imagepro" "familleId" :5},
-		{"id": 9,"nom": "Serveur Elite" "familleId" :6}
+		{"id": 1,"nom": "Imprimante jet d'encre" "familleId" :1},
+		{"id": 2,"nom": "Imprimante laser" "familleId" :1},
+		{"id": 3,"nom": "Televiseur OLED" "familleId" :2},
+		{"id": 4,"nom": "Televiseur Plasma" "familleId" :2},
+		{"id": 5,"nom": "Videoprojecteur" "familleId" :3},
+		{"id": 6,"nom": "Retroprojecteur" "familleId" :3}
 	],
+	
 	"article": [
-		{"id": 1,"nom": "Imprimante Canon PIXMA TS6150","sousFamilleId": 1,"description": "Imprimante multifonction à 6 encres séparées intelligente, compacte et connectée, idéale pour imprimer à domicile de superbes photos sans bordure.","ficheTechnique":"/PIXMATS6150.pdf"},
-		
+		{"id": 1,"nom": "Imprimante Canon PIXMA TS6150","sousFamilleId": 1,"description": "Imprimante connectée multifonction à 6 encres séparées intelligente,idéale pour imprimer à domicile de superbes photos sans bordure.","ficheTechnique":"/PIXMATS6150.pdf"},
+		{"id": 2,"nom": "Panasonic TX-32ES500E","sousFamilleId": 4,"description": "","ficheTechnique":"/TX32ES500E.pdf"},
+		{"id": 3,"nom": "Videoprojecteur LeicaT500","sousFamilleId": 5,"description": "","ficheTechnique":"/LEICAT500.pdf"},
+		{"id": 4,"nom": "Retroprojecteur Imagepro2B","sousFamilleId": 6,"description": "":"/IMAGEPRO2B.pdf"},
+		{"id": 5,"nom": "Imprimante HP Designjet T120 24","sousFamilleId": 1,"description": "","ficheTechnique":"/DESIGNJETT120.pdf"},
+		{"id": 6,"nom": "Sharp LV-70X500E","sousFamilleId": 3,"description": "","ficheTechnique":"/LV70X500E.pdf"},
+		{"id": 7,"nom": "Sony Bravia AF9","sousFamilleId": 1,"description": "":"/BRAVIAAF9.pdf"},
+		{"id": 8,"nom": "Brother MFC-9330CDW","sousFamilleId": 1,"description": "","ficheTechnique":"/MFC-9330CDW.pdf"},
 	],
+	
 	"materiel": [
 		{"id": 1,"serialNumber": "ABC973133717186","corps": "Tu n'as pas fait ton travail","salleId": 1,"clientId": 1},
 	],
@@ -50,7 +54,7 @@
 		{ "id" : 9, "nom":"Ricard", "prenom": "James", "telephone": "0778644612", "mail":"j.richard@loncoto.fr", "specialite":"1"},
 		{ "id" : 10, "nom":"Hanouna", "prenom": "Malika", "telephone": "0685477496", "mail":"c.saavedra@loncoto.fr", "specialite":"1"},
 		{ "id" : 11, "nom":"Dertora", "prenom": "Samy", "telephone": "0698784512", "mail":"s.dertora@loncoto.fr", "specialite":"1"},
-		{ "id" : 12, "nom":"Metge", "prenom": "Rmain", "telephone": "0633299845", "mail":"r.metge@loncoto.fr", "specialite":"1"},
+		{ "id" : 12, "nom":"Metge", "prenom": "Romain", "telephone": "0633299845", "mail":"r.metge@loncoto.fr", "specialite":"1"},
 		{ "id" : 13, "nom":"Vic", "prenom": "Guillaume", "telephone": "0774859658", "mail":"g.vic@loncoto.fr", "specialite":"1"},
 		{ "id" : 14, "nom":"Bouchez", "prenom": "Jean-Luck", "telephone": "0687789889", "mail":"jl.bouchez@loncoto.fr", "specialite":"1"},
 		{ "id" : 15, "nom":"Ouchen", "prenom": "Malika", "telephone": "0636963658", "mail":"m.ouchen@loncoto.fr", "specialite":"1"},
@@ -61,8 +65,12 @@
 		{ "id" : 20, "nom":"Aissou", "prenom": "Kamel", "telephone": "0662787398", "mail":"k.aissou@loncoto.fr", "specialite":"1"},
 		{ "id" : 21, "nom":"Mbalambala", "prenom": "Mamadou", "telephone": "0711589633", "mail":"m.mbalambala@loncoto.fr", "specialite":"1"}
 	],
-	"client": [
-		{"id": 1,"titre": "","corps": "","auteur": 1},
+	"Client": [
+		{ "id" : 1, "Entreprise": "JohnLegend", "telephone": "0185459871", "mail":"contact@johnlegend.fr", "Siret":"542 107 651 13030"},
+		{ "id" : 2, "Entreprise": "Expert Concept", "telephone": "0323658917", "mail":"contact@expert-contact.fr", "Siret":"397 552 811 00044"},
+		{ "id" : 3, "Entreprise": "DecoFirst", "telephone": "0185312578", "mail":"contact@decofirst.com", "Siret":"440 087 161 00020"},
+		{ "id" : 4, "Entreprise": "Flashbox", "telephone": "0577459852", "mail":"contact@flashbox.fr", "Siret":"814 841 748 00019"},
+		{ "id" : 5, "Entreprise": "Newpower", "telephone": "0258691736", "mail":"contact@newpower.fr", "Siret":"775 583 263 00121"},
 	],
 	"image": [
 		{"id": 1,"path": "/IMG/intervention1a.jpg"},
