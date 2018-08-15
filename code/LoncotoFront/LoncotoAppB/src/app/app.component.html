@@ -1,0 +1,14 @@
+<div class="container">
+    <div *ngIf="isClientVisible">
+        <app-user-client></app-user-client>
+      </div>
+      <div *ngIf="isIntervenantVisible">
+        <app-user-intervenant></app-user-intervenant>
+      </div>
+      <div *ngIf="isOperateurVisible">
+        <app-user-operateur></app-user-operateur>
+      </div>
+      <div *ngIf="isLoginVisible">
+        <app-login (usertype)="getSubmitLogin($event)"></app-login>
+      </div>
+</div>
