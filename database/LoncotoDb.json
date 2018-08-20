@@ -699,5 +699,119 @@
 			"clientId": 5,
 			"siteId": 1
 		}
+	],
+	"RelSpecialite": [
+		{
+			"intervenantId": 1,
+			"sousfamilleId": 1
+		},
+		{
+			"intervenantId": 1,
+			"sousfamilleId": 3
+		},
+		{
+			"intervenantId": 2,
+			"sousfamilleId": 2
+		},
+		{
+			"intervenantId": 2,
+			"sousfamilleId": 4
+		},
+		{
+			"intervenantId": 2,
+			"sousfamilleId": 6
+		},
+		{
+			"intervenantId": 3,
+			"sousfamilleId": 1
+		},
+		{
+			"intervenantId": 4,
+			"sousfamilleId": 4
+		},
+		{
+			"intervenantId": 4,
+			"sousfamilleId": 5
+		},
+		{
+			"intervenantId": 5,
+			"sousfamilleId": 3
+		},
+		{
+			"intervenantId": 5,
+			"sousfamilleId": 6
+		},
+		{
+			"intervenantId": 5,
+			"sousfamilleId": 2
+		},
+		{
+			"intervenantId": 6,
+			"sousfamilleId": 4
+		},
+		{
+			"intervenantId": 7,
+			"sousfamilleId": 1
+		},
+		{
+			"intervenantId": 8,
+			"sousfamilleId": 2
+		},
+		{
+			"intervenantId": 9,
+			"sousfamilleId": 3
+		},
+		{
+			"intervenantId": 10,
+			"sousfamilleId": 4
+		},
+		{
+			"intervenantId": 11,
+			"sousfamilleId": 5
+		},
+		{
+			"intervenantId": 12,
+			"sousfamilleId": 6
+		},
+		{
+			"intervenantId": 13,
+			"sousfamilleId": 1
+		},
+		{
+			"intervenantId": 14,
+			"sousfamilleId": 2
+		},
+		{
+			"intervenantId": 15,
+			"sousfamilleId": 3
+		},
+		{
+			"intervenantId": 16,
+			"sousfamilleId": 4
+		},
+		{
+			"intervenantId": 17,
+			"sousfamilleId": 5
+		},
+		{
+			"intervenantId": 18,
+			"sousfamilleId": 6
+		},
+		{
+			"intervenantId": 19,
+			"sousfamilleId": 1
+		},
+		{
+			"intervenantId": 20,
+			"sousfamilleId": 2
+		},
+		{
+			"intervenantId": 21,
+			"sousfamilleId": 3
+		},
+		{
+			"intervenantId": 21,
+			"sousfamilleId": 6
+		}
 	]
 }

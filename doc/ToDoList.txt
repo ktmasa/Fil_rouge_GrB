@@ -1,0 +1,26 @@
+
+
+1/Projet TO DO List
+
+/////////////
+Operateur : 
++ajout ou modification intervention preventive (plusierus fois tout les xx jours).
++liste des intervenant disponible par ordre de date ou specialite.
+
+Intervenant :
++
++
++
+
+Client :
++telechargement rapport sous format pdf?
++filtre par status
++demande formulaire
+
+///////////////
+
+Mise en place d'un theme pour l'esthetique.
+
+2/Question a se poser :
+- comment gerer le temps d'une intervention (1 intervention par demi-journee ou plus precis sur le temps? avec une duree d'intervention? etc)
+- calendrier à la main ou deja concu?
