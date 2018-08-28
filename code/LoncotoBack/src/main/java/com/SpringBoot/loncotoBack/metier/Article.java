@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +25,6 @@ public class Article {
 	private String description;
 	private String ficheTechnique;
 	@ManyToOne private SousFamille sousFamille;
-	@OneToMany(mappedBy="materiel") private Set<Materiel> materiels;
+	@JsonIgnore @OneToMany(mappedBy="materiel") private Set<Materiel> materiels;
 	
 }

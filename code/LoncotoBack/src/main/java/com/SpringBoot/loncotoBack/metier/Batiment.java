@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.SpringBoot.loncotoBack.repositories.IBatimentRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ public class Batiment {
 	private String nom;
 	
 	@ManyToOne private Site site;
-	@OneToMany(mappedBy ="batiment") private Set<Etage> etages;
+	@JsonIgnore @OneToMany(mappedBy ="batiment") private Set<Etage> etages;
 	public Batiment(int id, String nom) {
 		super();
 		this.id = id;

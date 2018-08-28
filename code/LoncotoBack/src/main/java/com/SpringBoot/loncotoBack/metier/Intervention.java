@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +30,7 @@ public class Intervention {
 	
 	@ManyToOne private Materiel materiel;
 	@ManyToOne private Intervenant intervenant;
-	@OneToMany(mappedBy ="intervention") private Set<Image> images;
+	@JsonIgnore @OneToMany(mappedBy ="intervention") private Set<Image> images;
 	
 	public Intervention(int id, LocalDate datePlanification, LocalDate dateRealisation, String status,
 			String commentaireIntervenant, String descriptionPanne) {

@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +27,7 @@ public class Intervenant {
 	private int telephone;
 	private int cvId;
 	
-	@OneToMany(mappedBy="intervenant")private Set<Intervention> interventions;
+	@JsonIgnore @OneToMany(mappedBy="intervenant")private Set<Intervention> interventions;
 
 	public Intervenant(int id, String nom, String prenom, String mail, String specialite, int telephone) {
 		super();

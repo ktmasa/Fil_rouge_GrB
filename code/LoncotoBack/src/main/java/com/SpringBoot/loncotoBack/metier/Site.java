@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +25,7 @@ public class Site {
 	private double longitude;
 	
 	@ManyToMany(mappedBy = "sites")private Set<Client> clients;
-	@OneToMany(mappedBy = "site") private Set<Batiment> batiments;
+	@JsonIgnore @OneToMany(mappedBy = "site") private Set<Batiment> batiments;
 	
 	public Site(int id, String nom, String adresse, double latitude, double longitude) {
 		super();

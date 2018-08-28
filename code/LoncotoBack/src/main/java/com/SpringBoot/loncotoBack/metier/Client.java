@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,9 +27,9 @@ public class Client {
 	private int telephone;
 	private String siret;
 	
-	@OneToMany(mappedBy = "client") private Set<Materiel> materiels;
+	@JsonIgnore @OneToMany(mappedBy = "client") private Set<Materiel> materiels;
 	//master of site-client relation
-	@ManyToMany private Set<Site> sites;
+	@JsonIgnore @ManyToMany private Set<Site> sites;
 	
 	public Client(int id, String entreprise, String mail, int telephone, String siret) {
 		super();

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +25,7 @@ public class Materiel {
 	@ManyToOne private Salle salle;
 	@ManyToOne private Client client;
 	@ManyToOne private Article article;
-	@OneToMany private Set<Intervention> interventions;
+	@JsonIgnore @OneToMany(mappedBy="materiel") private Set<Intervention> interventions;
 	
 	public Materiel(int id, String serialNumber) {
 		super();

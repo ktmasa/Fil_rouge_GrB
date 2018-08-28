@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +23,7 @@ public class SousFamille {
 	private int id;
 	private String nom;
 	@ManyToOne private Famille famille;
-	@OneToMany(mappedBy = "sousFamille")private Set<Article> articles;
+	@JsonIgnore @OneToMany(mappedBy = "sousFamille")private Set<Article> articles;
 	
 	public SousFamille(int id, String nom) {
 		super();
