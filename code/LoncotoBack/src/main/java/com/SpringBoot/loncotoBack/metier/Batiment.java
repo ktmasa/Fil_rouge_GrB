@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.SpringBoot.loncotoBack.repositories.IBatimentRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;

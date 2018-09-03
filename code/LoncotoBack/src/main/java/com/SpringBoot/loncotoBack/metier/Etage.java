@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.SpringBoot.loncotoBack.repositories.IBatimentRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -24,7 +23,7 @@ public class Etage {
 	private int id;
 	private int numero;
 	
-	@ManyToOne private IBatimentRepository batiment;
+	@ManyToOne private Batiment batiment;
 	@JsonIgnore @OneToMany(mappedBy = "etage")private Set<Salle> salles;
 	
 	public Etage(int id, int numero) {

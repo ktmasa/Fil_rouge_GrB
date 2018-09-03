@@ -25,6 +25,7 @@ public class Article {
 	private String description;
 	private String ficheTechnique;
 	@ManyToOne private SousFamille sousFamille;
-	@JsonIgnore @OneToMany(mappedBy="materiel") private Set<Materiel> materiels;
+	@JsonIgnore @OneToMany(mappedBy="article") private Set<Materiel> materiels;
 	
 }
+

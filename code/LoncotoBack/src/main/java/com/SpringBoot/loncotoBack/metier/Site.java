@@ -2,6 +2,7 @@ package com.SpringBoot.loncotoBack.metier;
 
 import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Getter @Setter @NoArgsConstructor @ToString(exclude = {"batiments","clients"})
+@Entity
 public class Site {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -24,7 +26,7 @@ public class Site {
 	private double latitude;
 	private double longitude;
 	
-	@ManyToMany(mappedBy = "sites")private Set<Client> clients;
+	@JsonIgnore @ManyToMany(mappedBy = "sites")private Set<Client> clients;
 	@JsonIgnore @OneToMany(mappedBy = "site") private Set<Batiment> batiments;
 	
 	public Site(int id, String nom, String adresse, double latitude, double longitude) {

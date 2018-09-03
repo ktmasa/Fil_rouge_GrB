@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,7 +32,6 @@ public class Intervention {
 	@ManyToOne private Materiel materiel;
 	@ManyToOne private Intervenant intervenant;
 	@JsonIgnore @OneToMany(mappedBy ="intervention") private Set<Image> images;
-	
 	public Intervention(int id, LocalDate datePlanification, LocalDate dateRealisation, String status,
 			String commentaireIntervenant, String descriptionPanne) {
 		super();
@@ -42,6 +42,12 @@ public class Intervention {
 		this.commentaireIntervenant = commentaireIntervenant;
 		this.descriptionPanne = descriptionPanne;
 	}
+	public Intervention(int id) {
+		super();
+		this.id = id;
+	}
+	
+	
 	
 	
 	

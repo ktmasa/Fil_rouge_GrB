@@ -38,9 +38,10 @@ public class Intervenant {
 		this.specialite = specialite;
 		this.telephone = telephone;
 	}
-	
-	
-	
-	
+
+	public Intervenant(int id) {
+		super();
+		this.id = id;
+	}	
 
 }

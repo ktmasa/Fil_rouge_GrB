@@ -1,4 +1,4 @@
-package com.SpringBoot.loncotoBack.metier;
+ package com.SpringBoot.loncotoBack.metier;
 
 import java.util.Set;
 
@@ -33,5 +33,10 @@ public class Materiel {
 		this.serialNumber = serialNumber;
 	}
 
+	public Materiel(int id) {
+		super();
+		this.id = id;
+	}
+	
 	
 }

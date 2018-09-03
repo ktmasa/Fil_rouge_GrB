@@ -29,7 +29,7 @@ public class Client {
 	
 	@JsonIgnore @OneToMany(mappedBy = "client") private Set<Materiel> materiels;
 	//master of site-client relation
-	@JsonIgnore @ManyToMany private Set<Site> sites;
+	@ManyToMany private Set<Site> sites;
 	
 	public Client(int id, String entreprise, String mail, int telephone, String siret) {
 		super();

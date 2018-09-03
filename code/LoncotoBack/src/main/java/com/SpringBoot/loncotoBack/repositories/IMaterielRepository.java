@@ -13,5 +13,6 @@ import com.SpringBoot.loncotoBack.metier.Materiel;
 public interface IMaterielRepository extends PagingAndSortingRepository<Materiel, Integer> {
 	
 	public Page<Materiel> findByClient_Id(int id, Pageable pr);
+	
 
 }

@@ -12,5 +12,9 @@ import com.SpringBoot.loncotoBack.metier.Client;
 @RestResource
 public interface IClientRepository extends PagingAndSortingRepository<Client, Integer> {
 	
+	public Page<Client> findByEntreprise(String entreprise, Pageable pr);
+	
+	public Page<Client> findBySiret(String siret, Pageable pr);
+	
 
 }
