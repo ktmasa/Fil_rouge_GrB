@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @NoArgsConstructor @ToString(exclude = {"materiels","etage"})
+@NoArgsConstructor @ToString(exclude = {"materiels","etage"})
 @Entity
 public class Salle {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,30 @@ public class Salle {
 		super();
 		this.id = id;
 		this.nom = nom;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public Etage getEtage() {
+		return etage;
+	}
+	public void setEtage(Etage etage) {
+		this.etage = etage;
+	}
+	public Set<Materiel> getMateriels() {
+		return materiels;
+	}
+	public void setMateriels(Set<Materiel> materiels) {
+		this.materiels = materiels;
 	}
 	
 	

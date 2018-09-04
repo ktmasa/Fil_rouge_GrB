@@ -38,20 +38,40 @@ public interface IInterventionRepository extends PagingAndSortingRepository<Inte
 	//liste des intervention entre 2 dates données
 	Page<Intervention> findAllDateRealisationBetween(LocalDate dateStart,LocalDate dateEnd,Pageable pr);
 	
+	//operateur
+	
 	@Query("select i from Intervention i where i.dateRealisation <= :dateRealisation")
-    Page<Intervention> findAllWithRealisationDateTimeBefore(@Param("dateRealisation") LocalDate dateRealisation);
+    Page<Intervention> findAllWithFixedDateTimeBefore(@Param("dateRealisation") LocalDate dateRealisation);
 	
 	@Query("select i from Intervention i where i.dateRealisation >= :dateRealisation")
-    Page<Intervention> findAllWithRealisationDateTimeAfter(@Param("dateRealisation") LocalDate dateRealisation);
+    Page<Intervention> findAllWithFixedDateTimeAfter(@Param("dateRealisation") LocalDate dateRealisation);
 	
-	@Query("select i from Intervention as i join Intervenant as emp where i.dateRealisation <= :creationDateTime and i.intervenant.id = emp.id and emp.id = :interId")
-	Page<Intervention> findAllWithCreationDateTimeBeforeOfIntervenant(@Param("creationDateTime") LocalDate creationDateTime, @Param("interId")  int interId);
+	//intervenant -> liste des intervention effectuée, non effectué et d'une date fixe et order by date
 	
-	@Query("select i from Intervention as i join Intervenant as emp where i.dateRealisation > :creationDateTime and i.intervenant.id = emp.id and emp.id = :interId")
-	Page<Intervention> findAllWithCreationDateTimeAfterOfIntervenant(@Param("creationDateTime") LocalDate creationDateTime, @Param("interId")  int interId);
+	@Query("select i from Intervention i where i.dateRealisation <= :creationDateTime and i.intervenant.id = :interId ORDER BY i.dateRealisation")
+	Page<Intervention> findWithFixedDateBeforeOfIntervenant(@Param("creationDateTime") LocalDate creationDateTime, @Param("interId")  int interId,Pageable pr);
+	
+	@Query("select i from Intervention i where i.dateRealisation >= :creationDateTime and i.intervenant.id = :interId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithFixedDateAfterOfIntervenant(@Param("creationDateTime") LocalDate creationDateTime, @Param("interId")  int interId,Pageable pr);
+	
+	@Query("select i from Intervention i where i.dateRealisation = :creationDateTime and i.intervenant.id = :interId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithFixedDateOfIntervenant(@Param("creationDateTime") LocalDate creationDateTime, @Param("interId")  int interId,Pageable pr);
+	
+	@Query("select i from Intervention i where i.intervenant.id = :interId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithIntervenantOrder(@Param("interId")  int interId,Pageable pr);
 	
 	
 	
+	//client -> liste des intervention effectuée, non effectué et d'une date fixe 
+	@Query("select i from Intervention as i join Materiel as mat join Client as c where i.dateRealisation <= :creationDateTime and mat.id = i.materiel.id and mat.client.id = :clientId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithFixedDateBeforeOfClient(@Param("creationDateTime") LocalDate creationDateTime, @Param("clientId")  int interId,Pageable pr);
 	
+	@Query("select i from Intervention as i join Materiel as mat join Client as c where i.dateRealisation >= :creationDateTime and mat.id = i.materiel.id and mat.client.id = :clientId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithFixedDateAfterOfClient(@Param("creationDateTime") LocalDate creationDateTime, @Param("clientId")  int interId,Pageable pr);
 	
+	@Query("select i from Intervention as i join Materiel as mat join Client as c where i.dateRealisation = :creationDateTime and mat.id = i.materiel.id and mat.client.id = :clientId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithFixedDateOfClient(@Param("creationDateTime") LocalDate creationDateTime, @Param("clientId")  int interId,Pageable pr);
+	
+	@Query("select i from Intervention as i join Materiel as mat join Client as c where mat.id = i.materiel.id and mat.client.id = :clientId ORDER BY i.dateRealisation")
+	Page<Intervention> findAllWithClientOrder(@Param("clientId")  int interId,Pageable pr);
 }

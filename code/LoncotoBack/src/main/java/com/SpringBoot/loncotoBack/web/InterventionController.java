@@ -1,5 +1,6 @@
 package com.SpringBoot.loncotoBack.web;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -122,6 +123,36 @@ public class InterventionController {
 		result.put("intervention_deleted_id", "" + id);
 		return result;
 	}
+	
+	@RequestMapping(value = "/next/client/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
+	public Intervention nextInterventionClient(@PathVariable("id") int id, @PageableDefault(page=0,size=15) Pageable pr){
+		List<Intervention> interventionList = interventionRepository.findAllWithFixedDateAfterOfClient(LocalDate.now(), id,pr).getContent();
+		if(interventionList == null) {
+			return null;
+		}else {
+			return interventionList.get(0);
+		}
+		
+		
+	}
+	
+	@RequestMapping(value = "/next/intervenant/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
+	public  Intervention nextInterventionIntervenant(@PathVariable("id") int id,@PageableDefault(page=0,size=15) Pageable pr){
+		List<Intervention> interventionList = interventionRepository.findAllWithFixedDateAfterOfIntervenant(LocalDate.now(), id,pr).getContent();
+		if(interventionList == null) {
+			return null;
+		}else {
+			return interventionList.get(0);
+		}
+		
+	}
+	
+	
+	
 	
 	
 }

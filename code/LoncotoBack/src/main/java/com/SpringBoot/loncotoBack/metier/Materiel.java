@@ -1,4 +1,4 @@
- package com.SpringBoot.loncotoBack.metier;
+package com.SpringBoot.loncotoBack.metier;
 
 import java.util.Set;
 
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @NoArgsConstructor @ToString(exclude = {"interventions","salle","client","article"})
+@NoArgsConstructor @ToString(exclude = {"interventions","salle","client","article"})
 @Entity
 public class Materiel {
 	@Id @GeneratedValue(strategy =GenerationType.IDENTITY)
@@ -33,10 +33,53 @@ public class Materiel {
 		this.serialNumber = serialNumber;
 	}
 
-	public Materiel(int id) {
-		super();
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
+
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
+	}
+
+	public Salle getSalle() {
+		return salle;
+	}
+
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
+	public Set<Intervention> getInterventions() {
+		return interventions;
+	}
+
+	public void setInterventions(Set<Intervention> interventions) {
+		this.interventions = interventions;
+	}
+
 	
 }

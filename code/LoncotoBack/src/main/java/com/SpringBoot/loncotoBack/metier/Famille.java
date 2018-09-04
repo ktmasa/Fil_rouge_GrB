@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @NoArgsConstructor @ToString(exclude = {"sousFamilles"})
+@NoArgsConstructor @ToString(exclude = {"sousFamilles"})
 @Entity
 public class Famille {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,30 @@ public class Famille {
 		super();
 		this.id = id;
 		this.nom = nom;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Set<SousFamille> getSousFamilles() {
+		return sousFamilles;
+	}
+
+	public void setSousFamilles(Set<SousFamille> sousFamilles) {
+		this.sousFamilles = sousFamilles;
 	}
 	
 	

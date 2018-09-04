@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter @Getter @NoArgsConstructor @ToString(exclude = {"materiel","intervenant","images"})
+@NoArgsConstructor @ToString(exclude = {"materiel","intervenant","images"})
 @Entity
 public class Intervention {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +31,7 @@ public class Intervention {
 	@ManyToOne private Materiel materiel;
 	@ManyToOne private Intervenant intervenant;
 	@JsonIgnore @OneToMany(mappedBy ="intervention") private Set<Image> images;
+	
 	public Intervention(int id, LocalDate datePlanification, LocalDate dateRealisation, String status,
 			String commentaireIntervenant, String descriptionPanne) {
 		super();
@@ -42,12 +42,78 @@ public class Intervention {
 		this.commentaireIntervenant = commentaireIntervenant;
 		this.descriptionPanne = descriptionPanne;
 	}
-	public Intervention(int id) {
-		super();
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
+
+	public LocalDate getDatePlanification() {
+		return datePlanification;
+	}
+
+	public void setDatePlanification(LocalDate datePlanification) {
+		this.datePlanification = datePlanification;
+	}
+
+	public LocalDate getDateRealisation() {
+		return dateRealisation;
+	}
+
+	public void setDateRealisation(LocalDate dateRealisation) {
+		this.dateRealisation = dateRealisation;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getCommentaireIntervenant() {
+		return commentaireIntervenant;
+	}
+
+	public void setCommentaireIntervenant(String commentaireIntervenant) {
+		this.commentaireIntervenant = commentaireIntervenant;
+	}
+
+	public String getDescriptionPanne() {
+		return descriptionPanne;
+	}
+
+	public void setDescriptionPanne(String descriptionPanne) {
+		this.descriptionPanne = descriptionPanne;
+	}
+
+	public Materiel getMateriel() {
+		return materiel;
+	}
+
+	public void setMateriel(Materiel materiel) {
+		this.materiel = materiel;
+	}
+
+	public Intervenant getIntervenant() {
+		return intervenant;
+	}
+
+	public void setIntervenant(Intervenant intervenant) {
+		this.intervenant = intervenant;
+	}
+
+	public Set<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(Set<Image> images) {
+		this.images = images;
+	}
 	
 	
 	
