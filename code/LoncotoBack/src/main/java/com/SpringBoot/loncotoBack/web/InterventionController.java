@@ -4,15 +4,9 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
@@ -26,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.SpringBoot.loncotoBack.metier.Intervention;
 import com.SpringBoot.loncotoBack.repositories.IInterventionRepository;
-import com.SpringBoot.loncotoBack.repositories.IMaterielRepository;
 
 @Controller
 @RequestMapping("/interventions")
@@ -36,24 +29,21 @@ public class InterventionController {
 	private IInterventionRepository interventionRepository;
 	
 	//recupere la liste des intervention d'un client donnée
-	/*
+	
 	@RequestMapping(value = "/clientlist/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
 	Page<Intervention> getInterventionFromClient(@PathVariable("id") int clientid,@PageableDefault(page=0,size=5) Pageable pr){
-		List<Intervention> interventions = interventionRepository.findFromClient(clientid);
-		Page<Intervention> pi =  new PageImpl<>(interventions,pr,interventions.size());
-		return pi;
+		return interventionRepository.findInterventionByClient(clientid,pr);
 	}
-	*/
+	
 	
 	//recupere la liste des intervention d'un materiel donnée
 	@RequestMapping(value = "/materiellist/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
 	Page<Intervention> getInterventionFromMateriel(@PathVariable("id") int materielid,@PageableDefault(page=0,size=5) Pageable pr){
-		List<Intervention> interventions = interventionRepository.findInterventionByMateriel(materielid);
-		return new PageImpl<>(interventions,pr,interventions.size());
+		return interventionRepository.findInterventionByMateriel(materielid,pr);
 	}
 	
 	

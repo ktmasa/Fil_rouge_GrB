@@ -35,4 +35,5 @@ public class IntervenantController {
 	public  Page<Intervenant> findAllIntervenant(int id,@PageableDefault(page=0,size=5) Pageable pr){
 		return intervenantRepository.findAll(pr);
 	}
+	
 }

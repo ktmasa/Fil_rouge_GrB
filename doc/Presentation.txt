@@ -1,0 +1,24 @@
+Plan de la présentation
+-----------------------
+
+Diapo-1 titre
+Presentation du groupe
+
+Diapo 2
+Presentation du projet -> explication du sujet/contexte...
+
+Diapo 3
+Explication de la demarche que l'on a effectuer pour developper le projet c'est à dire :
+Modelisation,Implementation back,Implementation front
+
+Diapo 4,5,6
+Modelisation -> Les acteurs? Les bases de données? Les fontionnalités? 
+
+Diapo 7,8,9,10,11,12 ou plus
+Partie Operateur -> Front,Back,Fonctionnalités
+Partie Client -> Front,Back,Fonctionnalités
+Partie Intervenant -> front,Back,Fonctionnalité
+
+Diapo 13,14
+Conclusion et Amelioration possible.
+---------------------------

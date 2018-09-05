@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @NoArgsConstructor @ToString(exclude = {"famille","articles"})
+@NoArgsConstructor @ToString(exclude = {"famille","articles"})
 @Entity
 public class SousFamille {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
