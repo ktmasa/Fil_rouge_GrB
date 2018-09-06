@@ -27,7 +27,7 @@ public class InterventionController {
 	
 	@Autowired
 	private IInterventionRepository interventionRepository;
-	
+	/*
 	//recupere la liste des intervention d'un client donnée
 	
 	@RequestMapping(value = "/clientlist/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -64,6 +64,7 @@ public class InterventionController {
 		return interventionRepository.findOne(id);
 	}
 	
+	
 	//liste de toute les interventions
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
@@ -71,6 +72,7 @@ public class InterventionController {
 	public Page<Intervention> findAll(@PageableDefault(page=0,size=5) Pageable pr){
 		return interventionRepository.findAll(pr);
 	}
+	
 	
 	//liste de tout les intervention trie par date
 	@RequestMapping(value = "/dateorder", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -114,6 +116,7 @@ public class InterventionController {
 		return result;
 	}
 	
+	
 	@RequestMapping(value = "/next/client/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
@@ -124,9 +127,8 @@ public class InterventionController {
 		}else {
 			return interventionList.get(0);
 		}
-		
-		
 	}
+	
 	
 	@RequestMapping(value = "/next/intervenant/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
@@ -138,11 +140,5 @@ public class InterventionController {
 		}else {
 			return interventionList.get(0);
 		}
-		
-	}
-	
-	
-	
-	
-	
+	}*/
 }

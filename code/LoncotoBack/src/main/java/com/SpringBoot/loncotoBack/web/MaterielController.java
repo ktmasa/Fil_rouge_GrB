@@ -26,7 +26,7 @@ public class MaterielController {
 	@Autowired
 	private IMaterielRepository materielRepository;
 	
-	@RequestMapping(value = "/clientlist/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/client/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
 	public Page<Materiel> findMaterielByClient(@PathVariable("id") int id,@PageableDefault(page=0,size=5) Pageable pr){
@@ -44,7 +44,7 @@ public class MaterielController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
-	public  Page<Materiel> findAllMateriel(int id,@PageableDefault(page=0,size=5) Pageable pr){
+	public  Page<Materiel> findAllMateriel(@PageableDefault(page=0,size=5) Pageable pr){
 		return materielRepository.findAll(pr);
 	}
 	

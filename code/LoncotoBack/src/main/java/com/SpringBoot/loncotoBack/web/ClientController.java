@@ -36,24 +36,23 @@ public class ClientController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
-	public Page<Client> findAllClient(int id,@PageableDefault(page=0,size=5) Pageable pr){
+	public Page<Client> findAllClient(@PageableDefault(page=0,size=5) Pageable pr){
 		return clientrepository.findAll(pr);
 	}
 	
-	
 	//recherche par nom entreprise -> http://localhost:8080/clients/searchent/?enterprise=JohnLegend
-	@RequestMapping(value = "/searchent", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/search/enterprise", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
-	public Page<Client> findByEntreprise(@RequestParam("enterprise")String entreprise, Pageable pr){
+	public Page<Client> findByEntreprise(@RequestParam("name")String entreprise, Pageable pr){
 		return clientrepository.findByEntreprise(entreprise,pr);
 	}
 	
 	//recherche par siret
-	@RequestMapping(value = "/searchsir", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/search/siret", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
-	public Page<Client> findBySiret(@RequestParam("siret")String siret, Pageable pr){
+	public Page<Client> findBySiret(@RequestParam("name")String siret, Pageable pr){
 		return clientrepository.findBySiret(siret, pr);
 	}
 

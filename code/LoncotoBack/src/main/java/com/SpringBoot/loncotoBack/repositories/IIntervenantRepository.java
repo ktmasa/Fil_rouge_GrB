@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.SpringBoot.loncotoBack.metier.Intervenant;
 import com.SpringBoot.loncotoBack.metier.Intervention;
@@ -14,9 +15,8 @@ import com.SpringBoot.loncotoBack.metier.Intervention;
 public interface IIntervenantRepository extends PagingAndSortingRepository<Intervenant, Integer> {
 	
 	//liste des intervenants disponibles une date donnée 
-	@Query("select emp from Intervenant emp where emp.specialite = :spe and emp.interventions.id NOT IN(select i.id from Intervention where i.intervention.dateRealisation = :date)")
-	Page<Intervention> findWithFixedDateDispoIntervenant(@Param("spe") String spe,@Param("date") LocalDate creationDateTime,Pageable pr);
-	
+	@Query("select i.intervenant from Intervention i where i.intervenant.specialite = :spe and i.id NOT IN(select i2.id from Intervention as i2 where i2.dateRealisation = :date)")
+	Page<Intervenant> findWithFixedDateDispoIntervenant(@Param("spe") String spe,@Param("date") @DateTimeFormat(pattern = "yyyy/MM/dd") LocalDate creationDateTime,Pageable pr);
 	/*
 	//liste des intervenants disponibles entre 2 dates -> ne marche pas
 	@Query("select emp from Intervenant emp where emp.specialite = :spe and emp.interventions.id NOT IN(select i.id from Intervention where i.dateRealisation Between :startDate and :endDate)")

@@ -32,19 +32,15 @@ public class SiteController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
-	public  Page<Site> findAllMateriel(int id,@PageableDefault(page=0,size=5) Pageable pr){
+	public  Page<Site> findAllMateriel(@PageableDefault(page=0,size=5) Pageable pr){
 		return siteRepository.findAll(pr);
 	}
 	
-	
-	
-	@RequestMapping(value = "/clientlist/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/client/{id:[0-9]+}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
 	public Page<Site> findSiteByClient_Id(@PathVariable("id") int id,@PageableDefault(page=0,size=5) Pageable pr){
-		return siteRepository.findSiteByClient_Id(id,pr);
+		return siteRepository.findSiteByClientId(id, pr);
 	}
-	
-	
 	
 }
