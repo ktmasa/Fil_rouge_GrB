@@ -11,9 +11,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @NoArgsConstructor @ToString(exclude = {"etages","site"})
@@ -25,6 +23,7 @@ public class Batiment {
 	
 	@ManyToOne private Site site;
 	@JsonIgnore @OneToMany(mappedBy ="batiment") private Set<Etage> etages;
+	
 	public Batiment(int id, String nom) {
 		super();
 		this.id = id;
