@@ -2,6 +2,7 @@ package com.SpringBoot.loncotoBack.web;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,16 +54,21 @@ public class IntervenantController {
 	return intervenantRepository.findWithFixedDateDispoIntervenant(spe,date, pr);	
 	}
 	
+	//retourne liste des intervenants par mail
+	@RequestMapping(value = "/search/mail", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
+	List<Intervenant> findByMail(@RequestParam("name") String mail){
+		return intervenantRepository.findByMail(mail);
+	}
+	
 	
 	@RequestMapping(value="/save",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.POST})
-	
 	public Intervenant saveIntervenant(@RequestBody Intervenant i) {
 		return intervenantRepository.save(i);
 	}
-	
-	
 
 	@RequestMapping(value="/save",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody

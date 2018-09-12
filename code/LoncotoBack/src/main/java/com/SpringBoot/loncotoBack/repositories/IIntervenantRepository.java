@@ -1,6 +1,7 @@
 package com.SpringBoot.loncotoBack.repositories;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,8 @@ public interface IIntervenantRepository extends PagingAndSortingRepository<Inter
 	//liste des intervenants disponibles une date donnée 
 	@Query("select i.intervenant from Intervention i where i.dateRealisation<> :date and i.intervenant.specialite = :spe")
 	Page<Intervenant> findWithFixedDateDispoIntervenant(@Param("spe") String spe,@Param("date") LocalDate creationDateTime,Pageable pr);
+	
+	List<Intervenant> findByMail(String mail);
 	
 	/*
 	//liste des intervenants disponibles entre 2 dates -> ne marche pas

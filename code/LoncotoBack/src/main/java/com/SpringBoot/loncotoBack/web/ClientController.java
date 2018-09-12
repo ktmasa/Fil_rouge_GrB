@@ -1,6 +1,7 @@
 package com.SpringBoot.loncotoBack.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,14 @@ public class ClientController {
 		return clientRepository.findBySiret(siret, pr);
 	}
 	
+	//retourne liste des client par mail
+	@RequestMapping(value = "/search/mail", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	@CrossOrigin(origins = {"http://localhost:4200"}, methods = {RequestMethod.GET})
+	public List<Client> findByMail(@RequestParam("name") String mail){
+		return clientRepository.findByMail(mail);
+	}
+	
 	
 	@RequestMapping(value="/save",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
@@ -67,7 +76,6 @@ public class ClientController {
 	public Client saveClient(@RequestBody Client i) {
 		return clientRepository.save(i);
 	}
-	
 	
 
 	@RequestMapping(value="/save",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -88,6 +96,4 @@ public class ClientController {
 		result.put("client_deleted_id", "" + id);
 		return result;
 	}
-	
-
 }

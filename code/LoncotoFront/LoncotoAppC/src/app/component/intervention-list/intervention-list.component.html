@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  <p> LISTE DES INTERVENTIONS</p>
+</div>
+<div class="row">
+  <!--
+  <pagination [totalItems]="totalItems"
+          [ngModel]="currentPage"
+          [itemsPerPage]="taillePage"
+          (pageChanged)="pageChanged($event)"></pagination>
+</div>-->
+<div class="panel-body">
+  <table class="table table-striped" border="1">
+    <thead>
+      <tr>
+        <th>DATE PLANIFICATION</th>
+        <th>DATE REALISATION</th>
+        <th>DESCRIPTION</th>
+        <th>STATUS</th>
+        <th>COMMENTAIRES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inter of interventions | async">
+        <td>{{inter.datePlanification}}</td>
+        <td>{{inter.dateRealisation}}</td>
+        <td>{{inter.descriptionPanne}}</td>
+        <td>{{inter.status}}</td>
+        <td>{{inter.commentaireIntervenant}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
