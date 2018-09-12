@@ -5,6 +5,8 @@ import { Client } from "./client";
 import { Salle } from "./salle";
 import { Etage } from "./etage";
 import { Batiment } from "./batiment";
+import { Famille } from "./famille";
+import { Sous_Famille } from "./sous_famille";
 
 export class Intervention{
     public constructor(public id:number,
@@ -21,6 +23,8 @@ export class Intervention{
         public clients?: Client,
         public salles?: Salle,
         public etages?: Etage,
+        public familles?: Famille,
+        public sousfamilles?: Sous_Famille,
         public batiments?: Batiment
     ){}
 

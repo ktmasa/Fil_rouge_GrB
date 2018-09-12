@@ -3,16 +3,36 @@
   
     <div class ="panel panel-info">
       <div class = "panel-heading">
-
-          <div><h2>THIS IS A PLANNING</h2></div>
-
-
-
+          <div><h3>Planning</h3></div>
       </div>
       <div class="panel-body">
-         This is the planning calendar?
-
+         <div class="row">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>Date Realisation</th>
+                <th>Status</th>
+                <th>Materiel</th>
+                <th>Client</th>
+                <th>Localisation</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let intervention of interventionSubject | async">
+                <td>{{intervention.dateRealisation}}</td>
+                <td>{{intervention.status}}</td>
+                <td>{{intervention.materiel.article.nom}}</td>
+                <td>Société :{{intervention.materiel.client.entreprise}} <br/>Phone:{{intervention.materiel.client.telephone}} <br/> Mail:{{intervention.materiel.client.mail}}</td>
+                <td>Salle:{{intervention.materiel.salle.nom}} <br/> Etage:{{intervention.materiel.salle.etage.numero}} <br/> Batiment:{{intervention.materiel.salle.etage.batiment.nom}} <br/>
+                  Site:{{intervention.materiel.salle.etage.batiment.site.nom}}</td>
+                <td>
+                  <button class="button btn-success" (click)="clickconsulter(intervention.id)">Consulter</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
     </div>
   </div>

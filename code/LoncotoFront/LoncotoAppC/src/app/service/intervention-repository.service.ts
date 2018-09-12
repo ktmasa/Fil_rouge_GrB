@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, Subscription, empty } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, Subject, Subscription, empty, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Intervention } from '../metier/intervention';
 import { Page } from '../metier/Page';
 
@@ -12,6 +12,7 @@ export class InterventionRepositoryService {
   private interventionsSubject: BehaviorSubject<Page<Intervention>>;
   private interventionsIntervenantSubject: BehaviorSubject<Page<Intervention>>;
   private nextInterventionSubject:BehaviorSubject<Intervention>;
+  private interventionsIntervenantDatesubject:BehaviorSubject<Page<Intervention>>;
 
   // pagination
   private noPage: number;
@@ -21,6 +22,7 @@ export class InterventionRepositoryService {
     // on démarre avec une page vid
     this.interventionsSubject = new BehaviorSubject<Page<Intervention>>(Page.emptyPage<Intervention>());
     this.interventionsIntervenantSubject= new BehaviorSubject<Page<Intervention>>(Page.emptyPage<Intervention>()); 
+    this.interventionsIntervenantDatesubject=new BehaviorSubject<Page<Intervention>>(Page.emptyPage<Intervention>()); 
     this.nextInterventionSubject = new BehaviorSubject<Intervention>(null);
     this.noPage = 0;
     this.taillePage = 10;
@@ -49,6 +51,16 @@ export class InterventionRepositoryService {
       });
   }
 
+  public getListByIntervenantDateOrder(id:number): void {
+    // requette ajax vers le serveur
+    this.http.get<Page<Intervention>>(
+      `http://localhost:8080/interventions/intervenant/planning?id=${id}&page=${this.noPage}&size=${this.taillePage}`)
+      .subscribe(p => {
+        this.interventionsIntervenantDatesubject.next(p);
+      });
+  }
+  
+
   public getInterventionsPageAsObservable(): Observable<Page<Intervention>> {
     return this.interventionsSubject.asObservable();
   }
@@ -60,6 +72,11 @@ export class InterventionRepositoryService {
   public getnextInterventionAsObservable():Observable<Intervention>{
     return this.nextInterventionSubject.asObservable();
   }
+
+  public getinterventionsIntervenantDatesubjectAsObservable():Observable<Page<Intervention>>{
+    return this.interventionsIntervenantDatesubject.asObservable();
+  }
+  
 
   public findNextIntervention(id : number): Observable<Intervention>{
     return this.http.get<Intervention>(`http://localhost:8080/interventions/intervenant/next/${id}`);

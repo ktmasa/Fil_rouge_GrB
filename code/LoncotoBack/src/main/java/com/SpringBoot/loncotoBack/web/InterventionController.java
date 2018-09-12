@@ -1,5 +1,6 @@
 package com.SpringBoot.loncotoBack.web;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -162,11 +163,11 @@ public class InterventionController {
 		List<Intervention> interventionList = interventionRepository
 				.findAllWithFixedDateAfterOfIntervenant(LocalDate.now(), id, pr).getContent();
 		if (interventionList == null) {
-			return null;
+			return new Intervention(0,LocalDate.now(),LocalDate.now(),"","","");
 		}else {
 			if(interventionList.get(0).getStatus().equals("Realisee")) {
 				if(interventionList.size()==1) {
-					return null;
+					return new Intervention(0,LocalDate.now(),LocalDate.now(),"","","");
 				}else {
 					return interventionList.get(1);
 				}
@@ -195,6 +196,16 @@ public class InterventionController {
 			@RequestParam("id") int interId, @PageableDefault(page = 0, size = 5)  Pageable pr){
 		
 		return interventionRepository.findAllWithFixedDateAfterOfIntervenant(creationDateTime, interId, pr);
+	}
+	
+	//pour le planning
+	@RequestMapping(value = "/intervenant/planning", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	@CrossOrigin(origins = { "http://localhost:4200" }, methods = { RequestMethod.GET })
+	public Page<Intervention> findAllWithFixedDateAfterOfIntervenantPlanning(
+			@RequestParam("id") int interId, @PageableDefault(page = 0, size = 5)  Pageable pr){
+		System.out.println(LocalDate.now());
+		return interventionRepository.findAllWithFixedDateAfterOfIntervenant(LocalDate.now(), interId, pr);
 	}
 	
 	
@@ -277,11 +288,11 @@ public class InterventionController {
 			List<Intervention> interventionList = interventionRepository
 					.findAllWithFixedDateAfterOfClient(LocalDate.now(), id, pr).getContent();
 			if (interventionList == null) {
-				return null;
+				return new Intervention(0,LocalDate.now(),LocalDate.now(),"","","");
 			}else {
 				if(interventionList.get(0).getStatus().equals("Realisee")) {
 					if(interventionList.size()==1) {
-						return null;
+						return new Intervention(0,LocalDate.now(),LocalDate.now(),"","","");
 					}else {
 						return interventionList.get(1);
 					}

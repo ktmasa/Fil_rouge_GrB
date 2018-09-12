@@ -30,6 +30,12 @@ export class LoginComponent implements OnInit {
   public isplanningvisible:boolean;
   public isinterventionsvisible:boolean;
 
+  public consultId:number;
+  public isconsultVisible :boolean;
+
+
+
+
   constructor(private clientRepository: ClientRepositoryService, private intervenantRepository: IntervenantRepositoryService,private loguser:LoggedService) { 
     this.isClientVisible = false;
     this.isIntervenantVisible = false;
@@ -51,6 +57,8 @@ export class LoginComponent implements OnInit {
     this.isIntervenantVisible = false;
     this.isOperateurVisible =false;
     this.isLoginVisible = true;
+
+    this.isconsultVisible=false;
   }
 
   public submitLogin() {
@@ -93,4 +101,18 @@ export class LoginComponent implements OnInit {
     this.isplanningvisible = false;
     this.isinterventionsvisible = true;
    }
+
+   public consultCancelled(id:number){
+    this.consultId = 0;
+    this.isconsultVisible = false;   
+  }
+
+  public consultdisplay(id:number){
+    this.consultId = id;
+    this.isconsultVisible = true; 
+  }
+
+
+
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Subject, Subscription, Observable } from 'rxjs';
 import { Intervention } from '../../metier/intervention';
 import { InterventionRepositoryService } from '../../service/intervention-repository.service';
@@ -18,7 +18,9 @@ private intervenantSouscription : Subscription;
 public intervenantId:number
 
 public consultId:number;
-@Input() public isconsultVisible : boolean;
+public isconsultVisible : boolean;
+
+@Output() public consultInter : EventEmitter<number> = new EventEmitter<number>();
 
 // pagination
 public totalItems : number;
@@ -48,13 +50,8 @@ public pageChanged(event) {
 }
 
 public clickconsulter(id:number){
-  this.consultId = id;
-  this.isconsultVisible = true;
-}
-
-public consultCancelled(num:number) {
-  this.consultId = 0;
-  this.isconsultVisible=false;
+  console.log("list click "+id);
+ this.consultInter.emit(id);
 }
 
 ngOnDestroy() {

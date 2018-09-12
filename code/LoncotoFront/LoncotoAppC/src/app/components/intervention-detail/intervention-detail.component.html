@@ -1,15 +1,37 @@
 <div class="row">
   <div class="panel panel-info">
-
     <div class="panel-heading">Détail Intervention</div>
-
     <div class="panel-body">
       <div class="row">
+         
+      <b>Date Realisation:</b><br/><br/>
+        {{intervention.dateRealisation}}<br/><br/>
 
-        <p> Some spec and spec and spec</p>
+      <b>Status:</b><br/><br/>
+        {{intervention.status}}<br/><br/>
 
-       
+      <b>Description de la Panne :</b><br/><br/>
+        {{intervention.descriptionPanne}}<br/><br/>
+
+      <b>Materiel:</b><br/><br/>
+        Nom du materiel :{{intervention.materiel.article.nom}}<br/>
+        Description :{{intervention.materiel.article.description}}<br/><br/>
+      
+        <b>Client:</b><br/><br/>
+        Société :{{intervention.materiel.client.entreprise}} <br/>
+        Phone:{{intervention.materiel.client.telephone}} <br/> 
+        Mail:{{intervention.materiel.client.mail}} <br/><br/>
+
+
+        <b>Localisation : </b><br/><br/>
+        Salle:{{intervention.materiel.salle.nom}} <br/>
+        Etage:{{intervention.materiel.salle.etage.numero}} <br/>
+        Batiment:{{intervention.materiel.salle.etage.batiment.nom}} <br/>
+        Site:{{intervention.materiel.salle.etage.batiment.site.nom}}<br/>
+
       </div>
+      <br/>
+      <hr/>
       <div class="row">
           <button class="btn btn-success" (click)="addRapport()">Faire un rapport</button>
           <button class="btn btn-danger" (click)="annule()">Annuler</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { InterventionRepositoryService } from '../../service/intervention-repository.service';
+import { Intervention } from '../../metier/intervention';
 
 
 
@@ -11,7 +12,9 @@ import { InterventionRepositoryService } from '../../service/intervention-reposi
 export class InterventionDetailComponent implements OnInit {
 
   @Input () public interventionId:number;
-  @Output() public editRequired : EventEmitter<number> = new EventEmitter<number>();
+  @Output() public cancel : EventEmitter<number> = new EventEmitter<number>();
+
+  public intervention : Intervention;
 
   constructor(private interventionRepository:InterventionRepositoryService) { 
 
@@ -21,14 +24,16 @@ export class InterventionDetailComponent implements OnInit {
 
   ngOnInit() {
   }
+  public annule(){
+    this.cancel.emit(0);
+  }
   ngOnChanges(changes: any) {
+    console.log(this.interventionId)
     if(this.interventionId!=0){
-
-
-
-
+      this.interventionRepository.findById(this.interventionId).subscribe(data =>{ console.log(this.intervention);
+        this.intervention = data;
+      });
     }
-  
   }
 
 }

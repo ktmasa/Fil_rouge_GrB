@@ -8,11 +8,8 @@
     <thead class="thead-dark">
       <tr>
         <th>Date Realisation</th>
-        <th>Description de la panne</th>
         <th>Status</th>
-        <th>Commentaire Intervenant</th>
         <th>Materiel</th>
-        <th>InfoMateriel</th>
         <th>CLient</th>
         <th>Localisation</th>
         <th>ACTIONS</th>
@@ -21,11 +18,8 @@
     <tbody>
       <tr *ngFor="let intervention of interventionSubject | async">
         <td>{{intervention.dateRealisation}}</td>
-        <td>{{intervention.description}}</td>
         <td>{{intervention.status}}</td>
-        <td>{{intervention.commentaire}}</td>
-        <td>Serial Number : {{intervention.materiel.serialnumber}} <br/>Materiel :{{intervention.materiel.article.nom}}</td>
-        <td>{{intervention.materiel.article.description}}</td>
+        <td>{{intervention.materiel.article.nom}}</td>
         <td>Société :{{intervention.materiel.client.entreprise}} <br/>Phone:{{intervention.materiel.client.telephone}} <br/> Mail:{{intervention.materiel.client.mail}}</td>
         <td>Salle:{{intervention.materiel.salle.nom}} <br/> Etage:{{intervention.materiel.salle.etage.numero}} <br/> Batiment:{{intervention.materiel.salle.etage.batiment.nom}} <br/>
           Site:{{intervention.materiel.salle.etage.batiment.site.nom}}</td>
@@ -35,10 +29,4 @@
       </tr>
     </tbody>
   </table>
-</div>
-
-<div class ="row">
-
-    <app-intervention-detail [interventionId]="consultId"  (cancel)="consultCancelled($event)" *ngif="isconsultVisible"></app-intervention-detail>
-
 </div>

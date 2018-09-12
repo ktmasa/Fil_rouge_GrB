@@ -50,7 +50,7 @@
               </div>
               <div class="form-group">
                 <label>Password :</label>
-                <input type="text" class="form-control" name="password" id="password" [(ngModel)]="currentPassword">
+                <input type="password" class="form-control" name="password" id="password" [(ngModel)]="currentPassword">
               </div>
               <div class="text-center">
                 <button class="btn btn-success" type="submit" (click)="submitLogin()">Se connecter</button>
@@ -67,9 +67,12 @@
     <div *ngIf="isClientVisible">
     </div>
     <div *ngIf="isIntervenantVisible">
-      <app-next-intervenant-intervention></app-next-intervenant-intervention>
-      <app-intervenant-intervention-list *ngIf="isinterventionsvisible"></app-intervenant-intervention-list>
-      <app-intervenant-planning-list *ngIf="isplanningvisible "></app-intervenant-planning-list>
+      <app-next-intervenant-intervention (consult)="consultdisplay($event)"></app-next-intervenant-intervention>
+      <app-intervenant-intervention-list *ngIf="isinterventionsvisible" (consultInter)="consultdisplay($event)"></app-intervenant-intervention-list>
+      <app-intervenant-planning-list *ngIf="isplanningvisible " (consulteur)="consultdisplay($event)"></app-intervenant-planning-list>
+      <div class ="row">
+        <app-intervention-detail [interventionId]="consultId"  (cancel)="consultCancelled($event)" *ngIf="isconsultVisible"></app-intervention-detail>
+    </div>
     </div>
     <div *ngIf="isOperateurVisible">
 

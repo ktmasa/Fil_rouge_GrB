@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { PaginationModule } from "ngx-bootstrap/pagination";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -79,11 +80,13 @@ import { NextIntervenantInterventionComponent } from './components/next-interven
     IntervenantInterventionListComponent,
     IntervenantInterventionAddComponent,
     NextIntervenantInterventionComponent
+ 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgbModule,
     PaginationModule.forRoot()
   ],
   providers: [],

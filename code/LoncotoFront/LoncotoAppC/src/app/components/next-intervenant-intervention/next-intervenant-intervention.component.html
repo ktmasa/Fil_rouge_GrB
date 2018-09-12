@@ -10,32 +10,37 @@
           <div class="row">
 
             <div class="col-md-10">
-              <div *ngIf="isvide==false">
-                Date de la Prochaine intervention :
+              <div *ngIf="nextIntervention.materiel">
+                 <b> Date de la Prochaine intervention :</b>
                 <br/> {{nextIntervention?.dateRealisation}}
-                <br/> Lieu :
-                <br/> Batiment {{nextIntervention?.materiel.salle.etage.batiment.nom}} du site {{nextIntervention?.materiel.salle.etage.batiment.site.nom}}
-                <br/> Materiel :
-                <br/> {{nextIntervention.materiel?.article.nom}}
-                <br/> Client :
-                <br/> {{nextIntervention?.materiel.client.entreprise}} / Contact : {{nextIntervention?.materiel.client.telephone}}
+                <br/> <b>Lieu :</b>
+                <br/> Batiment {{nextIntervention.materiel?.salle?.etage?.batiment?.nom}} du site {{nextIntervention?.materiel?.salle?.etage?.batiment?.site?.nom}}
+                <br/> <b>Materiel :</b>
+                <br/> {{nextIntervention?.materiel?.article?.nom}}
+                <br/> <b>Client :</b>
+                <br/> {{nextIntervention?.materiel?.client?.entreprise}}
+                <br/> <b>Contact :</b> {{nextIntervention?.materiel?.client?.telephone}}
               </div>
 
-              <div *ngIf="isvide">
+              <div *ngIf="!nextIntervention.materiel">
                 <br/>
                 <br/>
                 <br/>
                 <br/>
-                <h2>Pas d'intervention prévu</h2>
+                <h2>Pas d'intervention prévu!</h2>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
 
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2" *ngIf="nextIntervention.materiel">
               <br/>
               <br/>
               <br/>
-              <button type="button" class="btn btn-default" aria-label="Right Align">
+              <button type="button" class="btn btn-default" (click) ="consultDetail(nextIntervention.id)"  aria-label="Right Align">
                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
               </button>
               <br/>
@@ -56,7 +61,16 @@
 
         <div class="panel-heading">Calendrier</div>
 
-        <div class="panel-body">
+        <div class="panel-body" style="text-align: center">
+            <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+            <hr/>
+            
+            <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+            <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">To current month</button>
+            <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+            
+            <hr/>
 
         </div>
       </div>
